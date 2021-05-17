@@ -12,7 +12,7 @@ export class AuthController {
         let user = await storage.user.findOne({ email })
 
         if (!storage.user.comparePassword(password, user.password))
-            throw new Error("Password is incorrect!")
+            return next(new AppError(401, "Incorrect login or password"))
 
         let token = await jwt.sign(
             {

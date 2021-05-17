@@ -13,16 +13,18 @@ export class UserStorage implements UserRepo {
 
             return dbObj
         } catch (error) {
-            logger.error(`${this.scope}.get: finished with error: ${error.message}`)
+            logger.error(`${this.scope}.create: finished with error: ${error.message}`)
             throw error
         }
     }
 
     async update(slug: string, payload: IUser): Promise<string> {
-        return ""
+        throw new Error("not implemented yet")
     }
 
-    async delete(slug: string): Promise<any> {}
+    async delete(slug: string): Promise<any> {
+        throw new Error("not implemented yet")
+    }
 
     async findAll(query: findAllQuery): Promise<IUserAllResponse> {
         throw new Error("not implemented yet")
